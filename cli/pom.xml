@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+	    <artifactId>lijie2pc</artifactId>  
+        <groupId>com.lijie.tpc</groupId>
+        <version>1.0-SNAPSHOT</version> 
+	</parent>
+	
+	<modelVersion>4.0.0</modelVersion>
+    <artifactId>client</artifactId>
+	<packaging>jar</packaging>
+
+    <properties>
+        <mysql.version>5.1.25</mysql.version>
+    </properties>
+
+    <dependencies>
+
+        <dependency>  
+            <groupId>com.lijie.tpc</groupId>
+            <artifactId>common</artifactId>
+            <version>${project.version}</version>  
+        </dependency>  
+    </dependencies>
+
+    <build>
+	<plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.1</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <testResources>
+            <testResource>
+                <directory>src/test/java</directory>
+                <includes>
+                    <include>**/*.html</include>
+                    <include>**/*.txt</include>
+                </includes>
+            </testResource>
+            <testResource>
+                <directory>src/test/resources</directory>
+                <filtering>false</filtering>
+            </testResource>
+        </testResources>
+        
+    </build>
+
+</project>
